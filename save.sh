@@ -6,6 +6,6 @@ mc alias set \
   $AWS_SECRET_ACCESS_KEY \
   --api s3v4
 
-cd /reconftw/Recon/$2
+cd /reconftw/Recon/$1
 zip -r out.zip *
-mc cp out.zip arvan/recon/$2-$(date +"%Y-%m-%dT%H:%M:%SZ").zip
+mc cp out.zip arvan/recon/$1-$(date +"%Y-%m-%dT%H:%M:%SZ").zip
