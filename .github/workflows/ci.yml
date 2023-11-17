@@ -16,9 +16,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      - name: install pre-requisites
+        run: install.sh
+
       - name: Debug with tmate on failure
         uses: mxschmitt/action-tmate@v3
 
       - name: Test
         run: |-
-          /reconftw/reconftw.sh
+          /reconftw/reconftw.sh -f ./reconftw.cfg -d x.com -r
