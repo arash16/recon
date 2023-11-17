@@ -25,7 +25,8 @@ jobs:
           fetch-depth: 0
 
       - name: install pre-requisites
-        run: ./install.sh
+        run: ./install.sh && \
+             echo ${{ secrets.GITHUB_TOKEN }} >> /root/Tools/.github_tokens
 
       - name: Debug with tmate on debug
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
@@ -36,3 +37,5 @@ jobs:
       - name: Test
         run: |-
           /reconftw/reconftw.sh -f ./reconftw.cfg -d ${{inputs.domain}} -r
+
+      # save output at /reconftw/Recon/pornhub.com
